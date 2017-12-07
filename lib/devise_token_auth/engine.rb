@@ -23,9 +23,9 @@ module DeviseTokenAuth
                  :default_callbacks,
                  :headers_names
 
-  self.change_headers_on_each_request       = true
+  self.change_headers_on_each_request       = false
   self.max_number_of_devices                = 10
-  self.token_lifespan                       = 2.weeks
+  self.token_lifespan                       = 2.days
   self.batch_request_buffer_throttle        = 5.seconds
   self.omniauth_prefix                      = '/omniauth'
   self.default_confirm_success_url          = nil
