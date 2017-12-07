@@ -102,9 +102,11 @@ module DeviseTokenAuth
     end
 
     def render_create_success
-      render json: {
-        data: resource_data(resource_json: @resource.token_validation_response)
-      }
+      render json: { data: resource_data(resource_json: @resource.token_validation_response), 
+                     access_token: @token,
+                     uid:          @resource.uid,
+                     expiry:       @resource.tokens[@client_id]['expiry'],
+                     client:       @client_id }
     end
 
     def render_create_error_not_confirmed
